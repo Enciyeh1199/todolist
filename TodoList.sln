@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList", "TodoList\TodoList.csproj", "{4F3985F1-27EA-4A15-85BD-9B5E87B90E08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Data", "1-Data", "{73074A02-E1EB-4617-A7C5-F86DD4F4AFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{CE61759B-AB69-4BBE-A13D-D93565DC0A79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F3985F1-27EA-4A15-85BD-9B5E87B90E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3985F1-27EA-4A15-85BD-9B5E87B90E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3985F1-27EA-4A15-85BD-9B5E87B90E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3985F1-27EA-4A15-85BD-9B5E87B90E08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE61759B-AB69-4BBE-A13D-D93565DC0A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE61759B-AB69-4BBE-A13D-D93565DC0A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE61759B-AB69-4BBE-A13D-D93565DC0A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE61759B-AB69-4BBE-A13D-D93565DC0A79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CE61759B-AB69-4BBE-A13D-D93565DC0A79} = {73074A02-E1EB-4617-A7C5-F86DD4F4AFEE}
+	EndGlobalSection
+EndGlobal
