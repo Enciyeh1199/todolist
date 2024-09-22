@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data;
 
-public class Todo
+public class Todo :DbContext
 {
     [Key]
     public int id { get; set; }

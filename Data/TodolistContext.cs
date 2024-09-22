@@ -11,8 +11,8 @@ public class TodolistContext : DbContext
     public TodolistContext()
     {
 
-        var folder = Environment.SpecialFolder.LocalApplicationData;
-        var path = Environment.GetFolderPath(folder);
+       var folder = Environment.SpecialFolder.LocalApplicationData;
+         var path = Environment.GetFolderPath(folder);
         DbPath = System.IO.Path.Join(path, "Todolist.db");
 
     }
@@ -30,7 +30,7 @@ public class TodolistContext : DbContext
             .WithOne(e => e.Category)
             .HasForeignKey(e => e.id);
         modelBuilder.Entity<Todo>()
-            .HasOne(P => P.Category)
+            .HasOne(p => p.Category)
             .WithMany(p=> p.Todos)
             .HasForeignKey(p=>p.CategoryId);
     }

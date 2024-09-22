@@ -11,7 +11,7 @@ public class CategoryController: Controller
     private object _context;
     [ApiController]
     [Route("api/[controller]")]
-    
+
     public class BooksController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -28,7 +28,7 @@ public class CategoryController: Controller
         await _context.SaveChangesAsync();
 
         return Ok(book) ;
-        
+
     }
     [HttpGet("{id}")]
     public async Task<ActionResult<Category>> GetCategory(int id)
@@ -67,10 +67,12 @@ public class CategoryController: Controller
 
         return Ok();
     }
-   
+
 
 }*/
-using Data; // اطمینان حاصل کنید که فضای نام AppDbContext را شامل می‌شود
+/*اسم گذاری هام اشتباه بود درستشون کردم*/
+
+using Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -79,20 +81,13 @@ namespace TodoList.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CategoryController : ControllerBase
+    public class CategoryController(TodolistContext context) : ControllerBase
     {
-        private readonly AppDbContext _context;
-
-        public CategoryController(AppDbContext context)
-        {
-            _context = context;
-        }
-
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
-            _context.Categories.Add(category);
-            await _context.SaveChangesAsync();
+            context.Categories.Add(category);
+            await context.SaveChangesAsync();
 
             return Ok(category);
         }
@@ -100,7 +95,7 @@ namespace TodoList.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var category = await context.Categories.FindAsync(id);
 
             if (category == null)
             {
@@ -118,11 +113,11 @@ namespace TodoList.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(category).State = EntityState.Modified;
+            context.Entry(category).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -142,21 +137,21 @@ namespace TodoList.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var category = await context.Categories.FindAsync(id);
             if (category == null)
             {
                 return NotFound();
             }
 
-            _context.Categories.Remove(category);
-            await _context.SaveChangesAsync();
+            context.Categories.Remove(category);
+            await context.SaveChangesAsync();
 
             return Ok();
         }
 
         private bool CategoryExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
+            return context.Categories.Any(e => e.id == id);
         }
     }
 }
